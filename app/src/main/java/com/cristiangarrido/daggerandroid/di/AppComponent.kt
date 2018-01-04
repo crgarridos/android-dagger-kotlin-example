@@ -36,29 +36,12 @@ class ContextModule {
 @Scope annotation class ActivityScope
 
 @Singleton
-@Module//(subcomponents = [MainActivityComponent::class])
+@Module
 abstract class ActivityBindingModule {
-//    @Binds
-//    @IntoMap
-//    @ActivityKey(MainActivity::class)
-//    internal abstract fun bindMainActivity(builder: MainActivityComponent.Builder): AndroidInjector.Factory<out Activity>
-
     @ActivityScope
     @ContributesAndroidInjector(modules = [GreetingsModule::class])
     abstract fun contributeMainActivityInjector(): MainActivity
 }
-
-@Subcomponent(modules = [GreetingsModule::class])
-interface MainActivityComponent : AndroidInjector<MainActivity> {
-
-    @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<MainActivity>()
-
-
-    @Spanish fun getSpanish(): String
-    @French fun getFrench(): String
-}
-
 
 @Qualifier annotation class Spanish
 @Qualifier annotation class French
