@@ -14,7 +14,7 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class MainActivity : DaggerAppCompatActivity() {
-    @Inject @field:Spanish
+    @field:[Inject Spanish]
     lateinit var holaMundoText: String
 
     @Inject @field:English
@@ -27,7 +27,6 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        helloWorldLabel.text = arrayOf(holaMundoText,helloWorldText,bonjourText).joinToString("\n")
-
+        helloWorldLabel.text = arrayOf(holaMundoText, helloWorldText, bonjourText).joinToString("\n")
     }
 }
